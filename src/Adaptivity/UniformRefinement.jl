@@ -18,7 +18,7 @@ function refine(model::CartesianDiscreteModel{Dc}, cell_partition::Tuple) where 
 
   # Refined model
   domain     = _get_cartesian_domain(desc)
-  _model_ref = CartesianDiscreteModel(domain,cell_partition.*nC)
+  _model_ref = CartesianDiscreteModel(domain,cell_partition.*nC,isperiodic=desc.isperiodic)
 
   # Propagate face labels
   coarse_labels = get_face_labeling(model)
